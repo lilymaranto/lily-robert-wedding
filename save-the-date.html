@@ -10,6 +10,10 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    html {
+      background-color: #031a28;
+    }
+
     body {
       min-height: 100vh;
       display: flex;
@@ -17,7 +21,7 @@
       align-items: center;
       justify-content: flex-start;
       padding: calc(2rem - 10px) 1rem 3rem;
-      background-color: #0f4d66;
+      background-color: #031a28;
       background-image: url('reef.jpg');
       background-repeat: no-repeat;
       background-position: center top;
@@ -424,6 +428,14 @@
     }
 
     @media (max-width: 1050px) {
+      body {
+        padding-bottom: 1.5rem;
+      }
+
+      .page {
+        margin-bottom: -12vh;
+      }
+
       .hero-layout {
         flex-direction: column;
         align-items: center;
