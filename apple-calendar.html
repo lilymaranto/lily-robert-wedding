@@ -55,9 +55,22 @@
       text-transform: uppercase;
       border-radius: 2px;
     }
+    .home-link {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      padding: max(16px, env(safe-area-inset-top)) 24px 0;
+      color: #ffffff;
+      text-decoration: underline;
+      font-size: 14px;
+      text-shadow: 0 1px 6px rgba(15, 77, 102, 0.65);
+    }
   </style>
 </head>
 <body>
+  <a class="home-link" href="/">Return to Home</a>
   <div class="card">
     <h1>Lily &amp; Robert's Wedding</h1>
     <p>April 15–22, 2028<br>Roatán, Honduras</p>
