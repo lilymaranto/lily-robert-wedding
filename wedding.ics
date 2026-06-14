@@ -1,6 +1,7 @@
 BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//Lily and Robert Wedding//EN
+CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:lily-robert-wedding-20280415@lily-robert-wedding.vercel.app
 DTSTAMP:20260614T000000Z
