@@ -114,6 +114,7 @@
       margin-top: clamp(1.5rem, 6vw, 2.5rem);
       perspective: 1200px;
       overflow: visible;
+      pointer-events: none;
     }
 
     .envelope {
@@ -125,6 +126,7 @@
       transform: rotate(-8deg) translateY(-30px);
       transform-origin: center center;
       transform-style: preserve-3d;
+      pointer-events: none;
     }
 
     .envelope-body {
@@ -316,6 +318,8 @@
     }
 
     .calendar-section {
+      position: relative;
+      z-index: 10;
       width: 100%;
       max-width: 320px;
       margin-top: -16px;
@@ -324,6 +328,8 @@
 
     .calendar-btn {
       display: inline-block;
+      position: relative;
+      z-index: 1;
       padding: 14px 32px;
       background-color: #baeefb;
       color: #1a4a57;
