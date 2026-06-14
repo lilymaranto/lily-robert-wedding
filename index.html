@@ -16,7 +16,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      padding: 2rem 1rem 3rem;
+      padding: calc(2rem - 10px) 1rem 3rem;
       background-color: #0f4d66;
       font-family: 'Cormorant Garamond', Georgia, serif;
       overflow-x: hidden;
@@ -41,6 +41,7 @@
       align-items: flex-start;
       width: 100%;
       position: relative;
+      margin-bottom: -14px;
     }
 
     .things-to-do {
@@ -109,6 +110,8 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      transform: scale(0.9);
+      transform-origin: top center;
     }
 
     .scene {
@@ -319,30 +322,10 @@
       color: #7aa8b5;
     }
 
-    .replay {
-      position: fixed;
-      bottom: 1.5rem;
-      right: 1.5rem;
-      padding: 0.6em 1.2em;
-      background: rgba(240, 252, 255, 0.9);
-      border: 1px solid rgba(126, 200, 227, 0.5);
-      border-radius: 999px;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.9rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #1a4a57;
-      cursor: pointer;
-      backdrop-filter: blur(4px);
-      transition: background 0.2s;
-    }
-
-    .replay:hover { background: #f8fdff; }
-
     .calendar-section {
       width: 100%;
       max-width: 320px;
-      margin-top: calc(0.5rem - 10px);
+      margin-top: -16px;
       text-align: center;
     }
 
@@ -531,14 +514,14 @@
 
       <div class="qr-codes">
         <div class="qr-item">
-          <a href="wedding.ics" download="Lily-and-Robert-Wedding.ics">
-            <img src="qr-apple-calendar.png" width="120" height="120" alt="QR code — Add to Apple Calendar">
+          <a href="wedding.ics">
+            <img id="qr-apple" src="qr-apple-calendar.png" width="120" height="120" alt="QR code — Add to Apple Calendar">
           </a>
           <p>Apple Calendar</p>
         </div>
         <div class="qr-item">
-          <a href="wedding.ics" download="Lily-and-Robert-Wedding.ics">
-            <img src="qr-google-calendar.png" width="120" height="120" alt="QR code — Add to Google/Android Calendar">
+          <a href="wedding.ics">
+            <img id="qr-google" src="qr-google-calendar.png" width="120" height="120" alt="QR code — Add to Google/Android Calendar">
           </a>
           <p>Google/Android Calendar</p>
         </div>
@@ -546,19 +529,23 @@
     </section>
   </div>
 
-  <button class="replay" onclick="replayAnimation()">Replay</button>
-
   <script>
-    function replayAnimation() {
-      const scene = document.getElementById('scene');
-      const things = document.getElementById('thingsToDo');
-      const sceneClone = scene.cloneNode(true);
-      const thingsClone = things.cloneNode(true);
-      scene.replaceWith(sceneClone);
-      things.replaceWith(thingsClone);
-      sceneClone.id = 'scene';
-      thingsClone.id = 'thingsToDo';
-    }
+    (function () {
+      if (window.location.protocol === 'file:') return;
+
+      var icsUrl = new URL('wedding.ics', window.location.href).href;
+      var qrBase = 'https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=';
+
+      ['qr-apple', 'qr-google'].forEach(function (id) {
+        var img = document.getElementById(id);
+        if (img) img.src = qrBase + encodeURIComponent(icsUrl);
+      });
+
+      document.querySelectorAll('.qr-item a[href="wedding.ics"]').forEach(function (link) {
+        link.href = icsUrl;
+      });
+    })();
   </script>
+
 </body>
 </html>

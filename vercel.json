@@ -5,7 +5,20 @@
   ],
   "headers": [
     {
-      "source": "/(.*\\.(?:jpg|jpeg|png|gif|svg|webp|ics))",
+      "source": "/(.*\\.ics)",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/calendar; charset=utf-8"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*\\.(?:jpg|jpeg|png|gif|svg|webp))",
       "headers": [
         {
           "key": "Cache-Control",
