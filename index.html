@@ -18,21 +18,13 @@
       justify-content: flex-start;
       padding: calc(2rem - 10px) 1rem 3rem;
       background-color: #0f4d66;
+      background-image: url('reef.jpg');
+      background-repeat: no-repeat;
+      background-position: center top;
+      background-size: cover;
+      background-attachment: scroll;
       font-family: 'Cormorant Garamond', Georgia, serif;
       overflow-x: hidden;
-      position: relative;
-      isolation: isolate;
-    }
-
-    body::before {
-      content: '';
-      position: fixed;
-      top: -6%;
-      left: -3%;
-      right: -3%;
-      bottom: -6%;
-      background: url('reef.jpg') center center / cover no-repeat;
-      z-index: -1;
     }
 
     .hero-layout {
@@ -112,6 +104,7 @@
       align-items: center;
       transform: scale(0.9);
       transform-origin: top center;
+      position: relative;
     }
 
     .scene {
@@ -434,7 +427,14 @@
         position: static;
         width: 100%;
         max-width: 320px;
-        margin-top: 1rem;
+        margin-top: 1.5rem;
+        order: 0;
+      }
+    }
+
+    @media (min-width: 1051px) {
+      .things-to-do {
+        top: calc(clamp(1.5rem, 6vw, 2.5rem) + clamp(4rem, 14vw, 7rem));
       }
     }
 
@@ -490,20 +490,6 @@
       </div>
     </div>
 
-      <aside class="things-to-do" id="thingsToDo" aria-label="Things to do in Roatán">
-        <h2 class="things-title">Things to Do in Roatán</h2>
-        <ul class="things-list">
-          <li>🤿 Get Scuba Certified</li>
-          <li>🪸 Dive the Mesoamerican Reef</li>
-          <li>🪁 Kitesurfing</li>
-          <li>🐒 Zipline the Jungle Canopy</li>
-          <li>🏖️ Relax on the Beach</li>
-          <li>🎣 Charter a Fishing Boat</li>
-          <li>🍹 Try Local Baleadas &amp; Rum</li>
-        </ul>
-      </aside>
-    </div>
-
     <section class="calendar-section">
       <a
         class="calendar-btn"
@@ -527,6 +513,19 @@
         </div>
       </div>
     </section>
+
+    <aside class="things-to-do" id="thingsToDo" aria-label="Things to do in Roatán">
+      <h2 class="things-title">Things to Do in Roatán</h2>
+      <ul class="things-list">
+        <li>🤿 Get Scuba Certified</li>
+        <li>🪸 Dive the Mesoamerican Reef</li>
+        <li>🪁 Kitesurfing</li>
+        <li>🐒 Zipline the Jungle Canopy</li>
+        <li>🏖️ Relax on the Beach</li>
+        <li>🎣 Charter a Fishing Boat</li>
+        <li>🍹 Try Local Baleadas &amp; Rum</li>
+      </ul>
+    </aside>
   </div>
 
 </body>
