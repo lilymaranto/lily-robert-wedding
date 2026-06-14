@@ -514,13 +514,13 @@
 
       <div class="qr-codes">
         <div class="qr-item">
-          <a href="wedding.ics">
+          <a id="qr-apple-link" href="wedding.ics">
             <img id="qr-apple" src="qr-apple-calendar.png" width="120" height="120" alt="QR code — Add to Apple Calendar">
           </a>
           <p>Apple Calendar</p>
         </div>
         <div class="qr-item">
-          <a href="wedding.ics">
+          <a id="qr-google-link" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Lily+and+Robert%27s+Wedding&amp;dates=20280415/20280423&amp;location=Roatan%2C+Honduras&amp;details=Save+the+Date.+Invitation+to+follow.">
             <img id="qr-google" src="qr-google-calendar.png" width="120" height="120" alt="QR code — Add to Google/Android Calendar">
           </a>
           <p>Google/Android Calendar</p>
@@ -533,17 +533,19 @@
     (function () {
       if (window.location.protocol === 'file:') return;
 
-      var icsUrl = new URL('wedding.ics', window.location.href).href;
       var qrBase = 'https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=';
+      var webcalUrl = 'webcal://' + window.location.host + '/wedding.ics';
+      var googleUrl = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=Lily+and+Robert%27s+Wedding&dates=20280415/20280423&location=Roatan%2C+Honduras&details=Save+the+Date.+Invitation+to+follow.';
 
-      ['qr-apple', 'qr-google'].forEach(function (id) {
-        var img = document.getElementById(id);
-        if (img) img.src = qrBase + encodeURIComponent(icsUrl);
-      });
+      var appleImg = document.getElementById('qr-apple');
+      var googleImg = document.getElementById('qr-google');
+      var appleLink = document.getElementById('qr-apple-link');
+      var googleLink = document.getElementById('qr-google-link');
 
-      document.querySelectorAll('.qr-item a[href="wedding.ics"]').forEach(function (link) {
-        link.href = icsUrl;
-      });
+      if (appleImg) appleImg.src = qrBase + encodeURIComponent(webcalUrl);
+      if (googleImg) googleImg.src = qrBase + encodeURIComponent(googleUrl);
+      if (appleLink) appleLink.href = webcalUrl;
+      if (googleLink) googleLink.href = googleUrl;
     })();
   </script>
 
