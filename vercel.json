@@ -1,0 +1,17 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    { "source": "/save-the-date.html", "destination": "/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*\\.(?:jpg|jpeg|png|gif|svg|webp|ics))",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Save the Date — Lily & Robert</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 2rem 1rem 3rem;
+      background-color: #0f4d66;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      overflow-x: hidden;
+      position: relative;
+      isolation: isolate;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: -6%;
+      left: -3%;
+      right: -3%;
+      bottom: -6%;
+      background: url('reef.jpg') center center / cover no-repeat;
+      z-index: -1;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 520px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .scene {
+      position: relative;
+      width: min(92vw, 520px);
+      height: min(92vw, 520px);
+      margin-top: clamp(1.5rem, 6vw, 2.5rem);
+      perspective: 1200px;
+      overflow: visible;
+    }
+
+    .envelope {
+      position: absolute;
+      top: clamp(2rem, 10vw, 3.5rem);
+      left: 0;
+      right: 0;
+      bottom: 0;
+      transform: rotate(-8deg) translateY(-30px);
+      transform-origin: center center;
+      transform-style: preserve-3d;
+    }
+
+    .envelope-body {
+      position: absolute;
+      inset: 18% 8%;
+      border-radius: 4px;
+      background-image: url('envelope-texture.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: #b0b0b0;
+      box-shadow:
+        0 20px 50px rgba(50, 50, 60, 0.3),
+        0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .envelope-lining {
+      position: absolute;
+      inset: 18% 8%;
+      clip-path: polygon(0 0, 100% 0, 50% 55%);
+      background: linear-gradient(180deg, #ececec 0%, #d8d8d8 100%);
+      z-index: 1;
+      opacity: 0;
+      animation: liningReveal 0.6s ease 0.4s forwards;
+    }
+
+    .envelope-flap {
+      position: absolute;
+      inset: 18% 8%;
+      clip-path: polygon(0 0, 100% 0, 50% 55%);
+      transform-origin: 50% 0%;
+      transform: rotateX(0deg);
+      animation: flapOpen 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
+      z-index: 2;
+      background-image: url('envelope-texture.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: #b0b0b0;
+    }
+
+    .card-wrapper {
+      position: absolute;
+      top: clamp(2rem, 10vw, 3.5rem);
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 5;
+      pointer-events: none;
+    }
+
+    .card {
+      width: 72%;
+      aspect-ratio: 1;
+      background:
+        radial-gradient(ellipse at 25% 15%, rgba(180, 230, 255, 0.5) 0%, transparent 45%),
+        radial-gradient(ellipse at 75% 85%, rgba(126, 200, 227, 0.25) 0%, transparent 50%),
+        linear-gradient(165deg, #f8fdff 0%, #eef8fc 45%, #e2f3f9 100%);
+      border: 1px solid rgba(126, 200, 227, 0.45);
+      border-radius: 2px;
+      box-shadow:
+        0 24px 60px rgba(15, 77, 102, 0.28),
+        0 8px 20px rgba(15, 77, 102, 0.15);
+      position: relative;
+      overflow: hidden;
+      transform: translateY(60px) scale(0.88) rotate(-2deg);
+      opacity: 0;
+      animation: cardPopOut 1.1s cubic-bezier(0.34, 1.56, 0.64, 1) 0.7s forwards;
+    }
+
+    .card-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 12% 10%;
+      text-align: center;
+      color: #1a4a57;
+    }
+
+    .card-lionfish {
+      position: absolute;
+      top: -22px;
+      right: 0;
+      width: clamp(117px, 50%, 175px);
+      height: auto;
+      opacity: 0.95;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .card-turtle {
+      position: absolute;
+      bottom: 0;
+      left: -11px;
+      width: clamp(105px, 45%, 158px);
+      height: auto;
+      transform: translateY(30%);
+      opacity: 0.95;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .kindly {
+      font-size: clamp(0.55rem, 2.2vw, 0.7rem);
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: #5a8f9f;
+      margin-bottom: 0.6em;
+    }
+
+    .save-the-date {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 0.15em;
+      margin-bottom: 0.5em;
+      line-height: 1;
+    }
+
+    .save-the-date .word {
+      font-size: clamp(1.6rem, 6.5vw, 2.4rem);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: #1a4a57;
+    }
+
+    .save-the-date .the {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(1.4rem, 5.5vw, 2rem);
+      font-weight: 400;
+      color: #3d7a8c;
+      position: relative;
+      top: -0.1em;
+    }
+
+    .subtitle {
+      font-size: clamp(0.5rem, 1.8vw, 0.62rem);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #5a8f9f;
+      margin: 0.8em 0 0.5em;
+    }
+
+    .names {
+      font-size: clamp(0.85rem, 3.2vw, 1.15rem);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: #1a4a57;
+      margin-bottom: 0.7em;
+    }
+
+    .week-of {
+      font-size: clamp(0.5rem, 1.8vw, 0.62rem);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #5a8f9f;
+      margin: 0.8em 0 0.4em;
+    }
+
+    .date {
+      font-size: clamp(0.95rem, 3.5vw, 1.2rem);
+      letter-spacing: 0.12em;
+      color: #2d6b7d;
+      margin-bottom: 0.5em;
+    }
+
+    .location {
+      font-size: clamp(0.5rem, 1.8vw, 0.62rem);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #5a8f9f;
+      margin-bottom: 1em;
+    }
+
+    .follow {
+      font-size: clamp(0.45rem, 1.5vw, 0.55rem);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-style: italic;
+      color: #7aa8b5;
+    }
+
+    .replay {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      padding: 0.6em 1.2em;
+      background: rgba(240, 252, 255, 0.9);
+      border: 1px solid rgba(126, 200, 227, 0.5);
+      border-radius: 999px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #1a4a57;
+      cursor: pointer;
+      backdrop-filter: blur(4px);
+      transition: background 0.2s;
+    }
+
+    .replay:hover { background: #f8fdff; }
+
+    .calendar-section {
+      width: 100%;
+      max-width: 320px;
+      margin-top: calc(0.5rem - 10px);
+      text-align: center;
+    }
+
+    .calendar-btn {
+      display: inline-block;
+      padding: 14px 32px;
+      background-color: #baeefb;
+      color: #1a4a57;
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: background-color 0.2s;
+    }
+
+    .calendar-btn:hover { background-color: #9dd4f0; }
+
+    .calendar-hint {
+      margin: 20px 0 12px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #d4eef8;
+    }
+
+    .qr-codes {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .qr-item {
+      flex: 1;
+      max-width: 140px;
+    }
+
+    .qr-item a {
+      display: block;
+      text-decoration: none;
+    }
+
+    .qr-item img {
+      display: block;
+      width: 120px;
+      height: 120px;
+      margin: 0 auto;
+      border: 4px solid #e2f3f9;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    }
+
+    .qr-item p {
+      margin: 12px 0 0;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #f0f9fb;
+    }
+
+    @keyframes flapOpen {
+      0%   { transform: rotateX(0deg); opacity: 1; }
+      100% { transform: rotateX(-160deg); opacity: 1; }
+    }
+
+    @keyframes liningReveal {
+      0%   { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes cardPopOut {
+      0% {
+        transform: translateY(60px) scale(0.88) rotate(-2deg);
+        opacity: 0;
+      }
+      40% { opacity: 1; }
+      100% {
+        transform: translateY(-8px) scale(1) rotate(-2deg);
+        opacity: 1;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .envelope-flap,
+      .envelope-lining,
+      .card {
+        animation: none;
+        opacity: 1;
+        transform: translateY(-8px) scale(1) rotate(-2deg);
+      }
+      .envelope-flap { transform: rotateX(-160deg); opacity: 1; }
+      .envelope-lining { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page">
+    <div class="scene" id="scene">
+      <div class="envelope">
+        <div class="envelope-body"></div>
+        <div class="envelope-lining"></div>
+        <div class="envelope-flap"></div>
+      </div>
+
+      <div class="card-wrapper">
+        <div class="card">
+          <img class="card-lionfish" src="lionfish.png" alt="" aria-hidden="true">
+          <img class="card-turtle" src="sea-turtle.png" alt="" aria-hidden="true">
+          <div class="card-content">
+            <p class="kindly">Kindly</p>
+            <div class="save-the-date">
+              <span class="word">Save</span>
+              <span class="the">the</span>
+              <span class="word">Date</span>
+            </div>
+            <p class="subtitle">For the Wedding of</p>
+            <p class="names">Lily &amp; Robert</p>
+            <p class="week-of">The Week of</p>
+            <p class="date">April 15–22, 2028</p>
+            <p class="location">Roatan, Honduras</p>
+            <p class="follow">Invitation to Follow</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="calendar-section">
+      <a
+        class="calendar-btn"
+        href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Lily+and+Robert%27s+Wedding&amp;dates=20280415/20280423&amp;location=Roatan%2C+Honduras&amp;details=Save+the+Date.+Invitation+to+follow."
+      >Mark Your Calendar</a>
+
+      <p class="calendar-hint">Or scan to add to your calendar</p>
+
+      <div class="qr-codes">
+        <div class="qr-item">
+          <a href="wedding.ics" download="Lily-and-Robert-Wedding.ics">
+            <img src="qr-apple-calendar.png" width="120" height="120" alt="QR code — Add to Apple Calendar">
+          </a>
+          <p>Apple Calendar</p>
+        </div>
+        <div class="qr-item">
+          <a href="wedding.ics" download="Lily-and-Robert-Wedding.ics">
+            <img src="qr-google-calendar.png" width="120" height="120" alt="QR code — Add to Google/Android Calendar">
+          </a>
+          <p>Google/Android Calendar</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <button class="replay" onclick="replayAnimation()">Replay</button>
+
+  <script>
+    function replayAnimation() {
+      const scene = document.getElementById('scene');
+      const clone = scene.cloneNode(true);
+      scene.replaceWith(clone);
+      clone.id = 'scene';
+    }
+  </script>
+</body>
+</html>
