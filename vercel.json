@@ -13,7 +13,7 @@
         },
         {
           "key": "Content-Disposition",
-          "value": "inline; filename=\"Lily-and-Robert-Wedding.ics\""
+          "value": "attachment; filename=\"Lily-and-Robert-Wedding.ics\""
         },
         {
           "key": "Cache-Control",
