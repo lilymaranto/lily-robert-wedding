@@ -12,6 +12,10 @@
           "value": "text/calendar; charset=utf-8"
         },
         {
+          "key": "Content-Disposition",
+          "value": "inline; filename=\"Lily-and-Robert-Wedding.ics\""
+        },
+        {
           "key": "Cache-Control",
           "value": "public, max-age=31536000, immutable"
         }
