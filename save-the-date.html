@@ -35,9 +35,77 @@
       z-index: -1;
     }
 
+    .hero-layout {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      width: 100%;
+      position: relative;
+    }
+
+    .things-to-do {
+      position: absolute;
+      left: calc(50% + min(46vw, 260px));
+      right: 0;
+      top: calc(clamp(1.5rem, 6vw, 2.5rem) + clamp(4rem, 14vw, 7rem));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 clamp(0.75rem, 2vw, 1.5rem);
+      text-align: center;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      color: #f0f9fb;
+      text-shadow: 0 1px 8px rgba(15, 77, 102, 0.45);
+    }
+
+    .things-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(1.15rem, 2.6vw, 1.45rem);
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      line-height: 1.35;
+      width: 100%;
+      max-width: 280px;
+      padding-bottom: 0.75rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid rgba(186, 238, 251, 0.65);
+      color: #f0f9fb;
+      opacity: 0;
+      transform: translateX(16px);
+      animation: thingsTitleIn 0.55s cubic-bezier(0.34, 1.2, 0.64, 1) 1s forwards;
+    }
+
+    .things-list {
+      list-style: none;
+      padding: 0;
+      width: 100%;
+      max-width: 280px;
+    }
+
+    .things-list li {
+      position: relative;
+      margin-bottom: 0.75em;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(1.05rem, 2.2vw, 1.22rem);
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      line-height: 1.45;
+      color: #d4eef8;
+      opacity: 0;
+      transform: translateX(16px);
+      animation: thingBulletIn 0.45s cubic-bezier(0.34, 1.2, 0.64, 1) forwards;
+    }
+
+    .things-list li:nth-child(1) { animation-delay: 1.25s; }
+    .things-list li:nth-child(2) { animation-delay: 1.45s; }
+    .things-list li:nth-child(3) { animation-delay: 1.65s; }
+    .things-list li:nth-child(4) { animation-delay: 1.85s; }
+    .things-list li:nth-child(5) { animation-delay: 2.05s; }
+    .things-list li:nth-child(6) { animation-delay: 2.25s; }
+    .things-list li:nth-child(7) { animation-delay: 2.45s; }
+
     .page {
       width: 100%;
-      max-width: 520px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -359,6 +427,34 @@
       }
     }
 
+    @keyframes thingsTitleIn {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes thingBulletIn {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @media (max-width: 1050px) {
+      .hero-layout {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .things-to-do {
+        position: static;
+        width: 100%;
+        max-width: 320px;
+        margin-top: 1rem;
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .envelope-flap,
       .envelope-lining,
@@ -369,13 +465,20 @@
       }
       .envelope-flap { transform: rotateX(-160deg); opacity: 1; }
       .envelope-lining { opacity: 1; }
+      .things-title,
+      .things-list li {
+        animation: none;
+        opacity: 1;
+        transform: none;
+      }
     }
   </style>
 </head>
 <body>
 
   <div class="page">
-    <div class="scene" id="scene">
+    <div class="hero-layout">
+      <div class="scene" id="scene">
       <div class="envelope">
         <div class="envelope-body"></div>
         <div class="envelope-lining"></div>
@@ -397,11 +500,25 @@
             <p class="names">Lily &amp; Robert</p>
             <p class="week-of">The Week of</p>
             <p class="date">April 15–22, 2028</p>
-            <p class="location">Roatan, Honduras</p>
+            <p class="location">Roatán, Honduras</p>
             <p class="follow">Invitation to Follow</p>
           </div>
         </div>
       </div>
+    </div>
+
+      <aside class="things-to-do" id="thingsToDo" aria-label="Things to do in Roatán">
+        <h2 class="things-title">Things to Do in Roatán</h2>
+        <ul class="things-list">
+          <li>🤿 Get Scuba Certified</li>
+          <li>🪸 Dive the Mesoamerican Reef</li>
+          <li>🪁 Kitesurfing</li>
+          <li>🐒 Zipline the Jungle Canopy</li>
+          <li>🏖️ Relax on the Beach</li>
+          <li>🎣 Charter a Fishing Boat</li>
+          <li>🍹 Try Local Baleadas &amp; Rum</li>
+        </ul>
+      </aside>
     </div>
 
     <section class="calendar-section">
@@ -434,9 +551,13 @@
   <script>
     function replayAnimation() {
       const scene = document.getElementById('scene');
-      const clone = scene.cloneNode(true);
-      scene.replaceWith(clone);
-      clone.id = 'scene';
+      const things = document.getElementById('thingsToDo');
+      const sceneClone = scene.cloneNode(true);
+      const thingsClone = things.cloneNode(true);
+      scene.replaceWith(sceneClone);
+      things.replaceWith(thingsClone);
+      sceneClone.id = 'scene';
+      thingsClone.id = 'thingsToDo';
     }
   </script>
 </body>
