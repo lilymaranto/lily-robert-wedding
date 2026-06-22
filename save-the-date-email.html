@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" style="margin:0;padding:0;">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" style="margin:0;padding:0;color-scheme:light only;">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="color-scheme" content="light only">
+  <meta name="supported-color-schemes" content="light">
   <title>Save the Date — Robert & Lily</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
   <!--[if mso]>
@@ -16,6 +18,11 @@
   </noscript>
   <![endif]-->
   <style>
+    :root {
+      color-scheme: light only;
+      supported-color-schemes: light;
+    }
+
     .email-hero {
       border-radius: 14px !important;
       overflow: hidden !important;
@@ -44,11 +51,50 @@
       background-color: #ffffff !important;
       border-radius: 14px !important;
     }
+
+    /* Mobile: square hero (no rounded top image) */
+    @media screen and (max-width: 520px) {
+      .email-hero,
+      .email-hero-cell,
+      .email-hero-img {
+        border-radius: 0 !important;
+      }
+    }
+
+    /* Dark mode: keep light palette (Gmail, Apple Mail, etc.) */
+    @media (prefers-color-scheme: dark) {
+      body,
+      .body,
+      .email-shell,
+      .email-shell td {
+        background-color: #baeefb !important;
+        background-image: linear-gradient(#baeefb, #baeefb) !important;
+      }
+
+      .email-details-panel,
+      .email-details-panel td,
+      .email-things-panel,
+      .email-things-panel td {
+        background-color: #ffffff !important;
+        background-image: linear-gradient(#ffffff, #ffffff) !important;
+      }
+
+      .email-calendar-btn {
+        background-color: #0061C7 !important;
+        background-image: linear-gradient(#0061C7, #0061C7) !important;
+        color: #eef8fc !important;
+      }
+
+      .email-text-dark { color: #1a4a57 !important; }
+      .email-text-mid { color: #2d6b7d !important; }
+      .email-text-accent { color: #3d7a8c !important; }
+      .email-text-link { color: #2d6b7d !important; }
+    }
   </style>
 </head>
-<body bgcolor="#baeefb" class="body" style="margin:0;padding:0;background-color:#baeefb;font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif;">
+<body bgcolor="#baeefb" class="body" style="margin:0;padding:0;background-color:#baeefb;background-image:linear-gradient(#baeefb,#baeefb);color-scheme:light only;font-family:'Cormorant Garamond',Georgia,'Times New Roman',serif;">
 
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#baeefb" class="email-shell" style="background-color:#baeefb;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#baeefb" class="email-shell" style="background-color:#baeefb;background-image:linear-gradient(#baeefb,#baeefb);">
     <tr>
       <td align="center" bgcolor="#baeefb" style="padding:0;background-color:#baeefb;">
 
@@ -70,9 +116,9 @@
 
               <table role="presentation" width="520" cellpadding="0" cellspacing="0" border="0" class="email-hero" style="max-width:520px;width:100%;border-radius:14px;overflow:hidden;">
                 <tr>
-                  <td align="center" style="padding:0;line-height:0;font-size:0;border-radius:14px;overflow:hidden;">
-                    <a href="https://lily-robert-wedding.vercel.app/?lid=vr05fs2vcr28" style="text-decoration:none;">
-                      <img src="https://lily-robert-wedding.vercel.app/mail-card.png" width="1040" height="944" alt="Save the Date — Robert and Lily, April 15–22, 2028, Roatán, Honduras" class="email-hero-img" style="display:block;width:100%;max-width:520px;height:auto;margin:0 auto;border:0;border-radius:14px;">
+                  <td align="center" class="email-hero-cell" style="padding:0;line-height:0;font-size:0;border-radius:14px;overflow:hidden;">
+                    <a href="https://lily-robert-wedding.vercel.app/?lid=vr05fs2vcr28" style="text-decoration:none;display:block;line-height:0;font-size:0;overflow:hidden;">
+                      <img src="https://lily-robert-wedding.vercel.app/mail-card.png" width="1040" height="942" alt="Save the Date — Robert and Lily, April 15–22, 2028, Roatán, Honduras" class="email-hero-img" style="display:block;width:100%;max-width:520px;height:auto;margin:0 auto;border:0;border-radius:14px;">
                     </a>
                   </td>
                 </tr>
@@ -87,7 +133,7 @@
           <tr>
             <td align="center" bgcolor="#baeefb" style="padding:28px 16px 32px;background-color:#baeefb;">
 
-              <table role="presentation" width="520" cellpadding="0" cellspacing="0" border="0" class="email-details-panel" bgcolor="#ffffff" style="max-width:520px;width:100%;background-color:#ffffff;border:1px solid rgba(126,200,227,0.55);border-radius:14px;box-shadow:0 6px 28px rgba(26,74,87,0.1);">
+              <table role="presentation" width="520" cellpadding="0" cellspacing="0" border="0" class="email-details-panel" bgcolor="#ffffff" style="max-width:520px;width:100%;background-color:#ffffff;background-image:linear-gradient(#ffffff,#ffffff);border:1px solid rgba(126,200,227,0.55);border-radius:14px;box-shadow:0 6px 28px rgba(26,74,87,0.1);">
                 <tr>
                   <td align="center" style="padding:28px 22px 32px;">
 
@@ -95,7 +141,7 @@
                     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                       <tr>
                         <td align="center" style="padding:0 0 18px;">
-                          <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Robert%20and%20Lily%27s%20Wedding&dates=20280415%2F20280423&location=Roatan%2C%20Honduras&details=Save%20the%20Date.%20Invitation%20to%20follow.&lid=u93nztuub82l" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:14px 32px;background-color:#0061C7;color:#eef8fc;text-decoration:none;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;font-family:'Cormorant Garamond',Georgia,serif;border-radius:4px;border:1px solid #2d6b7d;">Mark Your Calendar</a>
+                          <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Robert%20and%20Lily%27s%20Wedding&dates=20280415%2F20280423&location=Roatan%2C%20Honduras&details=Save%20the%20Date.%20Invitation%20to%20follow.&lid=u93nztuub82l" target="_blank" rel="noopener noreferrer" class="email-calendar-btn" style="display:inline-block;padding:14px 32px;background-color:#0061C7;background-image:linear-gradient(#0061C7,#0061C7);color:#eef8fc;text-decoration:none;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;font-family:'Cormorant Garamond',Georgia,serif;border-radius:4px;border:1px solid #2d6b7d;">Mark Your Calendar</a>
                         </td>
                       </tr>
                     </table>
@@ -137,7 +183,7 @@
               </table>
 
               <!-- Things to do — separate panel with blue gap above -->
-              <table role="presentation" width="520" cellpadding="0" cellspacing="0" border="0" class="email-things-panel" bgcolor="#ffffff" style="max-width:520px;width:100%;margin:18px auto 0;background-color:#ffffff;border:1px solid rgba(126,200,227,0.55);border-radius:14px;box-shadow:0 6px 28px rgba(26,74,87,0.1);">
+              <table role="presentation" width="520" cellpadding="0" cellspacing="0" border="0" class="email-things-panel" bgcolor="#ffffff" style="max-width:520px;width:100%;margin:18px auto 0;background-color:#ffffff;background-image:linear-gradient(#ffffff,#ffffff);border:1px solid rgba(126,200,227,0.55);border-radius:14px;box-shadow:0 6px 28px rgba(26,74,87,0.1);">
                 <tr>
                   <td align="center" style="padding:22px 22px 26px;font-family:'Cormorant Garamond',Georgia,serif;">
 
