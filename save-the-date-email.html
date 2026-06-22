@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" style="margin:0;padding:0;color-scheme:light only;">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" bgcolor="#baeefb" style="margin:0;padding:0;background-color:#baeefb;background-image:linear-gradient(#baeefb,#baeefb);color-scheme:light only;">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,6 +23,32 @@
       supported-color-schemes: light;
     }
 
+    html,
+    body {
+      margin: 0 !important;
+      padding: 0 !important;
+      background-color: #baeefb !important;
+      background-image: linear-gradient(#baeefb, #baeefb) !important;
+    }
+
+    .email-shell {
+      background-color: #baeefb !important;
+      background-image: linear-gradient(#baeefb, #baeefb) !important;
+    }
+
+    .email-blue-bg {
+      background-color: #baeefb !important;
+      background-image: linear-gradient(#baeefb, #baeefb) !important;
+    }
+
+    .email-details-panel,
+    .email-details-panel td,
+    .email-things-panel,
+    .email-things-panel td {
+      background-color: #ffffff !important;
+      background-image: linear-gradient(#ffffff, #ffffff) !important;
+    }
+
     .email-hero {
       border-radius: 14px !important;
       overflow: hidden !important;
@@ -38,35 +64,54 @@
       border-radius: 14px !important;
     }
 
-    .email-shell {
-      background-color: #baeefb !important;
+    .email-hero-mobile {
+      display: none !important;
+      max-height: 0 !important;
+      overflow: hidden !important;
+      mso-hide: all;
     }
 
     .email-details-panel {
-      background-color: #ffffff !important;
       border-radius: 14px !important;
     }
 
     .email-things-panel {
-      background-color: #ffffff !important;
       border-radius: 14px !important;
     }
 
-    /* Mobile: square hero (no rounded top image) */
+    /* Mobile: mobile-card hero + square corners; white cards stay inset */
     @media screen and (max-width: 520px) {
       .email-hero,
       .email-hero-cell,
       .email-hero-img {
         border-radius: 0 !important;
+        max-width: 100% !important;
+        width: 100% !important;
+      }
+
+      .email-hero-desktop {
+        display: none !important;
+        max-height: 0 !important;
+        overflow: hidden !important;
+        mso-hide: all;
+      }
+
+      .email-hero-mobile {
+        display: block !important;
+        max-height: none !important;
+        overflow: visible !important;
+        width: 100% !important;
+        max-width: 100% !important;
       }
     }
 
     /* Dark mode: keep light palette (Gmail, Apple Mail, etc.) */
     @media (prefers-color-scheme: dark) {
+      html,
       body,
       .body,
       .email-shell,
-      .email-shell td {
+      .email-blue-bg {
         background-color: #baeefb !important;
         background-image: linear-gradient(#baeefb, #baeefb) !important;
       }
@@ -96,12 +141,12 @@
 
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#baeefb" class="email-shell" style="background-color:#baeefb;background-image:linear-gradient(#baeefb,#baeefb);">
     <tr>
-      <td align="center" bgcolor="#baeefb" style="padding:0;background-color:#baeefb;">
+      <td align="center" bgcolor="#baeefb" class="email-blue-bg" style="padding:0;background-color:#baeefb;background-image:linear-gradient(#baeefb,#baeefb);">
 
         <!-- View in browser -->
-        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#baeefb" style="background-color:#baeefb;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#baeefb" style="background-color:#baeefb;background-image:linear-gradient(#baeefb,#baeefb);">
           <tr>
-            <td align="center" style="padding:14px 20px 10px;background-color:#baeefb;">
+            <td align="center" bgcolor="#baeefb" class="email-blue-bg" style="padding:14px 20px 10px;background-color:#baeefb;background-image:linear-gradient(#baeefb,#baeefb);">
               <p style="margin:0;font-size:12px;color:#1a4a57;font-family:'Cormorant Garamond',Georgia,serif;">
                 <a href="https://lily-robert-wedding.vercel.app/?lid=vr05fs2vcr28" style="color:#2d6b7d;text-decoration:underline;">View the full animation in your browser</a>
               </p>
@@ -110,34 +155,31 @@
         </table>
 
         <!-- Hero: mail-card image -->
-        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#baeefb" style="background-color:#baeefb;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#baeefb" style="background-color:#baeefb;background-image:linear-gradient(#baeefb,#baeefb);">
           <tr>
-            <td align="center" bgcolor="#baeefb" style="padding:0;background-color:#baeefb;">
-
+            <td align="center" bgcolor="#baeefb" class="email-blue-bg" style="padding:0;background-color:#baeefb;background-image:linear-gradient(#baeefb,#baeefb);">
               <table role="presentation" width="520" cellpadding="0" cellspacing="0" border="0" class="email-hero" style="max-width:520px;width:100%;border-radius:14px;overflow:hidden;">
                 <tr>
                   <td align="center" class="email-hero-cell" style="padding:0;line-height:0;font-size:0;border-radius:14px;overflow:hidden;">
                     <a href="https://lily-robert-wedding.vercel.app/?lid=vr05fs2vcr28" style="text-decoration:none;display:block;line-height:0;font-size:0;overflow:hidden;">
-                      <img src="https://lily-robert-wedding.vercel.app/mail-card.png" width="1040" height="942" alt="Save the Date — Robert and Lily, April 15–22, 2028, Roatán, Honduras" class="email-hero-img" style="display:block;width:100%;max-width:520px;height:auto;margin:0 auto;border:0;border-radius:14px;">
+                      <img src="https://lily-robert-wedding.vercel.app/mail-card.png" width="1040" height="942" alt="Save the Date — Robert and Lily, April 15–22, 2028, Roatán, Honduras" class="email-hero-img email-hero-desktop" style="display:block;width:100%;max-width:520px;height:auto;margin:0 auto;border:0;border-radius:14px;">
+                      <img src="https://lily-robert-wedding.vercel.app/mobile-card.png" width="1040" height="898" alt="Save the Date — Robert and Lily, April 15–22, 2028, Roatán, Honduras" class="email-hero-img email-hero-mobile" style="display:block;width:100%;max-width:520px;height:auto;margin:0 auto;border:0;border-radius:14px;">
                     </a>
                   </td>
                 </tr>
               </table>
-
             </td>
           </tr>
         </table>
 
-        <!-- Details section: calendar, QR, travel, things to do (always below reef) -->
-        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#baeefb" style="background-color:#baeefb;">
+        <!-- Section 1: Mark Your Calendar (white card on blue) -->
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#baeefb" style="background-color:#baeefb;background-image:linear-gradient(#baeefb,#baeefb);">
           <tr>
-            <td align="center" bgcolor="#baeefb" style="padding:28px 16px 32px;background-color:#baeefb;">
-
+            <td align="center" bgcolor="#baeefb" class="email-blue-bg" style="padding:28px 16px 0;background-color:#baeefb;background-image:linear-gradient(#baeefb,#baeefb);">
               <table role="presentation" width="520" cellpadding="0" cellspacing="0" border="0" class="email-details-panel" bgcolor="#ffffff" style="max-width:520px;width:100%;background-color:#ffffff;background-image:linear-gradient(#ffffff,#ffffff);border:1px solid rgba(126,200,227,0.55);border-radius:14px;box-shadow:0 6px 28px rgba(26,74,87,0.1);">
                 <tr>
-                  <td align="center" style="padding:28px 22px 32px;">
+                  <td align="center" bgcolor="#ffffff" style="padding:28px 22px 32px;background-color:#ffffff;background-image:linear-gradient(#ffffff,#ffffff);">
 
-                    <!-- Mark Your Calendar -->
                     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                       <tr>
                         <td align="center" style="padding:0 0 18px;">
@@ -146,7 +188,6 @@
                       </tr>
                     </table>
 
-                    <!-- Calendar QR codes -->
                     <table role="presentation" width="320" cellpadding="0" cellspacing="0" border="0" style="max-width:320px;width:100%;margin:0 auto;">
                       <tr>
                         <td align="center" colspan="2" style="padding:0 8px 12px;font-family:'Cormorant Garamond',Georgia,serif;">
@@ -169,7 +210,6 @@
                       </tr>
                     </table>
 
-                    <!-- Travel note -->
                     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:20px auto 0;">
                       <tr>
                         <td align="center" style="padding:16px 8px 0;border-top:1px solid #0061C7;font-family:'Cormorant Garamond',Georgia,serif;">
@@ -181,11 +221,17 @@
                   </td>
                 </tr>
               </table>
+            </td>
+          </tr>
+        </table>
 
-              <!-- Things to do — separate panel with blue gap above -->
-              <table role="presentation" width="520" cellpadding="0" cellspacing="0" border="0" class="email-things-panel" bgcolor="#ffffff" style="max-width:520px;width:100%;margin:18px auto 0;background-color:#ffffff;background-image:linear-gradient(#ffffff,#ffffff);border:1px solid rgba(126,200,227,0.55);border-radius:14px;box-shadow:0 6px 28px rgba(26,74,87,0.1);">
+        <!-- Section 2: Things to Do (separate white card on blue) -->
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#baeefb" style="background-color:#baeefb;background-image:linear-gradient(#baeefb,#baeefb);">
+          <tr>
+            <td align="center" bgcolor="#baeefb" class="email-blue-bg" style="padding:18px 16px 32px;background-color:#baeefb;background-image:linear-gradient(#baeefb,#baeefb);">
+              <table role="presentation" width="520" cellpadding="0" cellspacing="0" border="0" class="email-things-panel" bgcolor="#ffffff" style="max-width:520px;width:100%;background-color:#ffffff;background-image:linear-gradient(#ffffff,#ffffff);border:1px solid rgba(126,200,227,0.55);border-radius:14px;box-shadow:0 6px 28px rgba(26,74,87,0.1);">
                 <tr>
-                  <td align="center" style="padding:22px 22px 26px;font-family:'Cormorant Garamond',Georgia,serif;">
+                  <td align="center" bgcolor="#ffffff" style="padding:22px 22px 26px;background-color:#ffffff;background-image:linear-gradient(#ffffff,#ffffff);font-family:'Cormorant Garamond',Georgia,serif;">
 
                     <p style="margin:0 0 10px;padding:0 0 10px;font-size:16px;font-weight:600;letter-spacing:0.08em;color:#1a4a57;line-height:1.35;text-align:center;border-bottom:2px solid #0061C7;">Things to Do in Roatán</p>
 
@@ -200,7 +246,6 @@
                   </td>
                 </tr>
               </table>
-
             </td>
           </tr>
         </table>
