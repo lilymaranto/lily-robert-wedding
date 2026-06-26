@@ -77,6 +77,22 @@
       mso-hide: all;
     }
 
+    .email-calendar-btn {
+      border-radius: 0 !important;
+      -webkit-border-radius: 0 !important;
+      background-color: #0061C7 !important;
+      background-image: linear-gradient(#0061C7, #0061C7) !important;
+      color: #eef8fc !important;
+      border: 1px solid #2d6b7d !important;
+    }
+
+    .email-qr-img {
+      border-radius: 0 !important;
+      -webkit-border-radius: 0 !important;
+      border: 3px solid #baeefb !important;
+      box-shadow: 0 2px 10px rgba(26, 74, 87, 0.12) !important;
+    }
+
     /* Mobile: mobile-card hero + square corners; white cards stay inset */
     @media screen and (max-width: 520px) {
       .email-hero,
@@ -129,6 +145,9 @@
         background-color: #0061C7 !important;
         background-image: linear-gradient(#0061C7, #0061C7) !important;
         color: #eef8fc !important;
+        border-radius: 0 !important;
+        -webkit-border-radius: 0 !important;
+        border: 1px solid #2d6b7d !important;
       }
 
       .email-text-dark { color: #1a4a57 !important; }
@@ -186,7 +205,7 @@
                     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                       <tr>
                         <td align="center" style="padding:0 0 18px;">
-                          <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Robert%20and%20Lily%27s%20Wedding&dates=20280415%2F20280423&location=Roatan%2C%20Honduras&details=Save%20the%20Date.%20Invitation%20to%20follow.&lid=u93nztuub82l" target="_blank" rel="noopener noreferrer" class="email-calendar-btn" style="display:inline-block;padding:14px 32px;background-color:#0061C7;background-image:linear-gradient(#0061C7,#0061C7);color:#eef8fc;text-decoration:none;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;font-family:'Cormorant Garamond',Georgia,serif;border-radius:4px;border:1px solid #2d6b7d;">Mark Your Calendar</a>
+                          <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Robert%20and%20Lily%27s%20Wedding&dates=20280415%2F20280423&location=Roatan%2C%20Honduras&details=Save%20the%20Date.%20Invitation%20to%20follow.&lid=u93nztuub82l" target="_blank" rel="noopener noreferrer" class="email-calendar-btn" style="display:inline-block;padding:14px 32px;background-color:#0061C7;background-image:linear-gradient(#0061C7,#0061C7);color:#eef8fc;text-decoration:none;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;font-family:'Cormorant Garamond',Georgia,serif;border-radius:0;border:1px solid #2d6b7d;">Mark Your Calendar</a>
                         </td>
                       </tr>
                     </table>
@@ -200,13 +219,13 @@
                       <tr>
                         <td align="center" width="50%" style="padding:0 10px 0;vertical-align:top;">
                           <a href="https://lily-robert-wedding.vercel.app/apple-calendar.html?lid=7wsbt8lbhla7" style="text-decoration:none;">
-                            <img src="https://lily-robert-wedding.vercel.app/qr-apple-v3.png" width="108" height="108" alt="QR code — Add to Apple Calendar" style="display:block;margin:0 auto;border:3px solid #baeefb;border-radius:6px;box-shadow:0 2px 10px rgba(26,74,87,0.12);">
+                            <img src="https://lily-robert-wedding.vercel.app/qr-apple-v3.png" width="108" height="108" alt="QR code — Add to Apple Calendar" class="email-qr-img" style="display:block;margin:0 auto;border:3px solid #baeefb;border-radius:0;box-shadow:0 2px 10px rgba(26,74,87,0.12);">
                           </a>
                           <p style="margin:10px 0 0;font-size:9px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#1a4a57;">Apple Calendar</p>
                         </td>
                         <td align="center" width="50%" style="padding:0 10px 0;vertical-align:top;">
                           <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Robert%20and%20Lily%27s%20Wedding&dates=20280415%2F20280423&location=Roatan%2C%20Honduras&details=Save%20the%20Date.%20Invitation%20to%20follow.&lid=zmai0ckk51ql" style="text-decoration:none;">
-                            <img src="https://lily-robert-wedding.vercel.app/qr-google-cal.png" width="108" height="108" alt="QR code — Add to Google/Android Calendar" style="display:block;margin:0 auto;border:3px solid #baeefb;border-radius:6px;box-shadow:0 2px 10px rgba(26,74,87,0.12);">
+                            <img src="https://lily-robert-wedding.vercel.app/qr-google-cal.png" width="108" height="108" alt="QR code — Add to Google/Android Calendar" class="email-qr-img" style="display:block;margin:0 auto;border:3px solid #baeefb;border-radius:0;box-shadow:0 2px 10px rgba(26,74,87,0.12);">
                           </a>
                           <p style="margin:10px 0 0;font-size:9px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#1a4a57;">Google/Android Calendar</p>
                         </td>
@@ -286,7 +305,7 @@
                     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                       <tr>
                         <td align="center" style="padding:0;">
-                          <a href="https://lily-robert-wedding.vercel.app/?lid=vr05fs2vcr28" target="_blank" rel="noopener noreferrer" class="email-calendar-btn" style="display:inline-block;padding:14px 32px;background-color:#0061C7;background-image:linear-gradient(#0061C7,#0061C7);color:#eef8fc;text-decoration:none;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;font-family:'Cormorant Garamond',Georgia,serif;border-radius:4px;border:1px solid #2d6b7d;">Visit Our Website</a>
+                          <a href="https://lily-robert-wedding.vercel.app/?lid=vr05fs2vcr28" target="_blank" rel="noopener noreferrer" class="email-calendar-btn" style="display:inline-block;padding:14px 32px;background-color:#0061C7;background-image:linear-gradient(#0061C7,#0061C7);color:#eef8fc;text-decoration:none;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;font-family:'Cormorant Garamond',Georgia,serif;border-radius:0;border:1px solid #2d6b7d;">Visit Our Website</a>
                         </td>
                       </tr>
                     </table>
